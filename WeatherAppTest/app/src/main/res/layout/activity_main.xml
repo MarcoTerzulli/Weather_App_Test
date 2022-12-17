@@ -7,59 +7,97 @@
     tools:context=".MainActivity">
 
 
-    <RelativeLayout
-        android:id="@+id/lat_relative"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Latitude" />
-
-        <EditText
-            android:id="@+id/latitude"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:inputType="number" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/long_relative"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lat_relative">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Longitude" />
-
-        <EditText
-            android:id="@+id/longitde"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:inputType="number" />
-    </RelativeLayout>
-
-    <Button
-        android:id="@+id/btn_get_forecast"
+    <TextView
+        android:id="@+id/txt_actual_city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/long_relative"
         android:layout_centerHorizontal="true"
-        android:text="Get Forecast" />
+        android:textSize="25sp"
+        android:paddingTop="25dp"
+        android:paddingBottom="30dp"
+        android:text="Viadana" />
+
+    <RelativeLayout
+        android:id="@+id/search_relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_actual_city">
+
+        <EditText
+            android:id="@+id/city_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:ems="10"
+            android:inputType="number" />
+
+        <ImageView
+            android:id="@+id/city_search_button"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_search"
+            android:layout_toEndOf="@+id/city_search"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/city_weather_relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search_relative">
+
+        <ImageView
+            android:id="@+id/city_actual_weather_icon"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+        <TextView
+            android:id="@+id/city_actual_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="50sp"
+            android:text="3°C" />
+
+        <TextView
+            android:id="@+id/city_actual_weather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/city_actual_temp"
+            android:layout_centerHorizontal="true"
+            android:textSize="25sp"
+            android:text="Prevalentemente Nuvoloso" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/city_actual_weather">
+
+            <TextView
+                android:id="@+id/city_min_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MIN 1°C"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/city_max_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/city_min_temp"
+                android:text="MAX 7°C"
+                android:paddingLeft="10dp"
+                android:textSize="15sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
 
     <HorizontalScrollView
         android:id="@+id/horizontal_scrollview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_get_forecast"
+        android:layout_below="@+id/city_weather_relative"
+        android:layout_alignParentBottom="true"
         android:focusable="false">
 
         <androidx.recyclerview.widget.RecyclerView
