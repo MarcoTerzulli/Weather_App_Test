@@ -1,6 +1,7 @@
 package com.terzulli.weatherapptest.utils;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * TODO levare / modificare questo commento descrittivo
@@ -48,5 +49,31 @@ public class CityForecast {
 
     public ArrayList<DailyForecast> getDailyForecast() {
         return dailyForecast;
+    }
+
+    public int getCurrentTemperature() {
+        if (dailyForecast.isEmpty())
+            return -1;
+        else {
+            ArrayList<HourlyForecast> hourlyForecast = dailyForecast.get(0).getHourlyForecast();
+            if (hourlyForecast.isEmpty())
+                return -1;
+            else {
+                return hourlyForecast.get(Calendar.getInstance().get(Calendar.HOUR_OF_DAY)).getTemperature();
+            }
+        }
+    }
+
+    public String getCurrentWeatherCode() {
+        if (dailyForecast.isEmpty())
+            return "";
+        else {
+            ArrayList<HourlyForecast> hourlyForecast = dailyForecast.get(0).getHourlyForecast();
+            if (hourlyForecast.isEmpty())
+                return "";
+            else {
+                return hourlyForecast.get(Calendar.getInstance().get(Calendar.HOUR_OF_DAY)).getWeather();
+            }
+        }
     }
 }

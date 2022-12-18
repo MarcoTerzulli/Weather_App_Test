@@ -11,8 +11,9 @@ public class ForecastAPI {
 
         // TODO popolo city forecast
 
-        CityForecast forecast = new CityForecast();
+        //CityForecast forecast = new CityForecast();
 
-        return forecast;
+        //return forecast;
+        return null;
     }
 }

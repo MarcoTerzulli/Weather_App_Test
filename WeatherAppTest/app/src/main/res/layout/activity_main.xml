@@ -6,16 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
     <TextView
         android:id="@+id/txt_actual_city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:textSize="25sp"
         android:paddingTop="25dp"
         android:paddingBottom="30dp"
-        android:text="Viadana" />
+        android:text="Viadana"
+        android:textSize="25sp" />
 
     <RelativeLayout
         android:id="@+id/search_relative"
@@ -23,20 +22,32 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt_actual_city">
 
-        <EditText
-            android:id="@+id/city_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/city_search_input_layout"
+            android:layout_width="250dp"
+            android:layout_height="25dp"
             android:layout_centerHorizontal="true"
             android:ems="10"
-            android:inputType="number" />
+            android:hint="Search city..."
+            android:inputType="number"
+            android:textSize="15sp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/city_search_input_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <ImageView
             android:id="@+id/city_search_button"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_search"
-            android:layout_toEndOf="@+id/city_search"/>
+            android:layout_toEndOf="@+id/city_search_input_layout"
+            android:src="@drawable/ic_search" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -55,8 +66,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:textSize="50sp"
-            android:text="3°C" />
+            android:text="3°C"
+            android:textSize="50sp" />
 
         <TextView
             android:id="@+id/city_actual_weather"
@@ -64,29 +75,29 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/city_actual_temp"
             android:layout_centerHorizontal="true"
-            android:textSize="25sp"
-            android:text="Prevalentemente Nuvoloso" />
+            android:text="Prevalentemente Nuvoloso"
+            android:textSize="25sp" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/city_actual_weather">
+            android:layout_below="@+id/city_actual_weather"
+            android:layout_centerHorizontal="true">
 
             <TextView
                 android:id="@+id/city_min_temp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="MIN 1°C"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/city_max_temp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/city_min_temp"
-                android:text="MAX 7°C"
                 android:paddingLeft="10dp"
+                android:text="MAX 7°C"
                 android:textSize="15sp" />
         </RelativeLayout>
     </RelativeLayout>
@@ -106,7 +117,9 @@
             android:layout_height="match_parent"
             android:descendantFocusability="afterDescendants"
             android:divider="@null"
-            android:scrollbars="none" />
+            android:orientation="horizontal"
+            android:scrollbars="none"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </HorizontalScrollView>
 
